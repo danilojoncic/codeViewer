@@ -24,9 +24,12 @@ public class MyToolbar extends JToolBar implements ActionListener {
     public void init() {
         useless = new String("local value that the interface will overwrite anyway");
         btnExec = new JButton("Run");
-        btnSave = new JButton("Save");
-        btnLoad = new JButton("Load");
-        btnScreenshot = new JButton("SC");
+        btnSave = new JButton();
+        btnLoad = new JButton();
+        btnScreenshot = new JButton();
+        btnSave.setIcon(new ImageIcon(getClass().getResource("/save.png")));
+        btnLoad.setIcon(new ImageIcon(getClass().getResource("/openFolder.png")));
+        btnScreenshot.setIcon(new ImageIcon(getClass().getResource("/picture.png")));
         this.setBorder(BorderFactory.createEtchedBorder());
         btnExec.addActionListener(this);
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
