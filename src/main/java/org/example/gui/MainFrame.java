@@ -37,6 +37,7 @@ public class MainFrame extends JFrame {
         this.add(myPalette,BorderLayout.SOUTH);
         contentController = new ContentController(this);
         loadController = new LoadController(this);
+        saveController = new SaveController(this);
     }
 
 
