@@ -40,60 +40,10 @@ public class EditorScrollPane extends JScrollPane {
         StyleConstants.setAlignment(rightAlign, StyleConstants.ALIGN_RIGHT);
         lineNumbers.setParagraphAttributes(rightAlign, true);
         lineNumberController = new LineNumberController(this);
-
-        doc.addDocumentListener(new DocumentListener() {
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                lineNumbers();
-            }
-
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                lineNumbers();
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                lineNumbers();
-            }
-        });
         this.setFont(new Font(Font.MONOSPACED, 15, Font.BOLD));
         this.getViewport().add(inputArea);
         this.setRowHeaderView(lineNumbers);
     }
-
-    private void lineNumbers() {
-        try {
-            String str = inputArea.getText();
-            SimpleAttributeSet lineNumbersAttributes = new SimpleAttributeSet();
-            StyleConstants.setFontFamily(lineNumbersAttributes, inputArea.getFont().getFamily());
-            StyleConstants.setFontSize(lineNumbersAttributes, inputArea.getFont().getSize());
-            StyleConstants.setAlignment(lineNumbersAttributes, StyleConstants.getAlignment(inputArea.getParagraphAttributes()));
-            lineNumbers.setParagraphAttributes(lineNumbersAttributes, true);
-            Document doc = lineNumbers.getDocument();
-            doc.remove(0, doc.getLength());
-            int length = str.length() - str.replaceAll("\n", "").length() + 1;
-            for (int i = 1; i <= length; i++) {
-                if (i < length) {
-                    doc.insertString(doc.getLength(), i + "\n", lineNumbersAttributes);
-                } else {
-                    doc.insertString(doc.getLength(), i + "\n", lineNumbersAttributes);
-                }
-            }
-        } catch (BadLocationException e) {
-            e.printStackTrace();
-        }
-    }
-    public void setIndentationSize(int size) {
-        String cache = indentation;
-        indentation = "";
-        for (int i = 0; i < size; i++) {
-            indentation += " ";
-        }
-
-        inputArea.setText(inputArea.getText().replaceAll(cache, indentation));
-    }
-
     public JTextPane getInputArea() {
         return inputArea;
     }
@@ -110,10 +60,4 @@ public class EditorScrollPane extends JScrollPane {
         this.lineNumbers = lineNumbers;
     }
 
-    public String getText() {
-        return inputArea.getText();
     }
-    public void setText(String str) {
-        inputArea.setText(str);
-    }
-}
