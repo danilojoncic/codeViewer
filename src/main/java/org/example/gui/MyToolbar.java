@@ -14,6 +14,7 @@ public class MyToolbar extends JToolBar implements ActionListener {
     private JButton clicked;
     private JButton btnSave;
     private JButton btnLoad;
+    private JButton btnScreenshot;
     private InputListener inputListener;
 
     public MyToolbar() {
@@ -25,10 +26,12 @@ public class MyToolbar extends JToolBar implements ActionListener {
         btnExec = new JButton("Run");
         btnSave = new JButton("Save");
         btnLoad = new JButton("Load");
+        btnScreenshot = new JButton("SC");
         this.setBorder(BorderFactory.createEtchedBorder());
         btnExec.addActionListener(this);
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         this.add(btnSave);
+        this.add(btnScreenshot);
         this.add(btnLoad);
         this.add(btnExec);
     }
@@ -51,6 +54,14 @@ public class MyToolbar extends JToolBar implements ActionListener {
 
     public JButton getClicked() {
         return clicked;
+    }
+
+    public JButton getBtnScreenshot() {
+        return btnScreenshot;
+    }
+
+    public void setBtnScreenshot(JButton btnScreenshot) {
+        this.btnScreenshot = btnScreenshot;
     }
 
     public void setClicked(JButton clicked) {

@@ -3,6 +3,7 @@ package org.example.gui;
 import org.example.control.ContentController;
 import org.example.control.LoadController;
 import org.example.control.SaveController;
+import org.example.control.ScreenshotController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +14,7 @@ public class MainFrame extends JFrame {
     private MyEditorScrollPane myEditorScrollPane;
     private LoadController loadController;
     private SaveController saveController;
+    private ScreenshotController screenshotController;
     private MyPanel myPanel;
     private MyToolbar myToolbar;
     private MyPalette myPalette;
@@ -38,6 +40,7 @@ public class MainFrame extends JFrame {
         contentController = new ContentController(this);
         loadController = new LoadController(this);
         saveController = new SaveController(this);
+        screenshotController = new ScreenshotController(this);
     }
 
 
