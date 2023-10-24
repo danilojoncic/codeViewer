@@ -1,6 +1,10 @@
 package org.example.gui;
 
 import org.example.control.ContentController;
+import org.example.control.LineNumberController;
+import org.example.control.LoadController;
+import org.example.control.SaveController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,7 +12,8 @@ public class MainFrame extends JFrame {
     private static MainFrame instance;
     private ContentController contentController;
     private EditorScrollPane editorScrollPane;
-
+    private LoadController loadController;
+    private SaveController saveController;
     private MyPanel myPanel;
     private MyToolbar myToolbar;
     private MyPalette myPalette;

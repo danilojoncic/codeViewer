@@ -1,5 +1,6 @@
 package org.example.gui;
 
+import org.example.control.LineNumberController;
 import org.example.gui.MyTextPane;
 
 import java.awt.Color;
@@ -26,11 +27,8 @@ public class EditorScrollPane extends JScrollPane {
     private JTextPane inputArea;
     private String indentation = "  ";
     private JTextPane lineNumbers;
+    private LineNumberController lineNumberController;
 
-    /*
-     * Here the constructor creates a TextPane as an editor-field and another TextPane for the
-     * line-numbers.
-     */
     public EditorScrollPane(MyTextPane myTextPane) {
         inputArea = myTextPane;
         this.setSize(myTextPane.getSize());
@@ -41,6 +39,7 @@ public class EditorScrollPane extends JScrollPane {
         SimpleAttributeSet rightAlign = new SimpleAttributeSet();
         StyleConstants.setAlignment(rightAlign, StyleConstants.ALIGN_RIGHT);
         lineNumbers.setParagraphAttributes(rightAlign, true);
+        lineNumberController = new LineNumberController(this);
 
         doc.addDocumentListener(new DocumentListener() {
             @Override
@@ -93,6 +92,22 @@ public class EditorScrollPane extends JScrollPane {
         }
 
         inputArea.setText(inputArea.getText().replaceAll(cache, indentation));
+    }
+
+    public JTextPane getInputArea() {
+        return inputArea;
+    }
+
+    public void setInputArea(JTextPane inputArea) {
+        this.inputArea = inputArea;
+    }
+
+    public JTextPane getLineNumbers() {
+        return lineNumbers;
+    }
+
+    public void setLineNumbers(JTextPane lineNumbers) {
+        this.lineNumbers = lineNumbers;
     }
 
     public String getText() {

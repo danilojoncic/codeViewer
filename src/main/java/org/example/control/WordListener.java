@@ -47,7 +47,7 @@ public class WordListener implements DocumentListener {
                 }
             }
 
-            Pattern numberPattern = Pattern.compile("\\b\\d+\\b"); // Match one or more digits
+            Pattern numberPattern = Pattern.compile("\\b\\d+\\b");
             Matcher numberMatcher = numberPattern.matcher(text);
 
             while (numberMatcher.find()) {

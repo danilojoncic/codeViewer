@@ -11,6 +11,8 @@ public class MyToolbar extends JToolBar implements ActionListener {
     private JButton btnExec;
     private String useless;
     private JButton clicked;
+    private JButton btnSave;
+    private JButton btnLoad;
     private InputListener inputListener;
 
     public MyToolbar() {
@@ -20,13 +22,13 @@ public class MyToolbar extends JToolBar implements ActionListener {
     public void init() {
         useless = new String("local value that the interface will overwrite anyway");
         btnExec = new JButton("Run");
+        btnSave = new JButton("Save");
+        btnLoad = new JButton("Load");
         this.setBorder(BorderFactory.createEtchedBorder());
         btnExec.addActionListener(this);
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-        this.add(Box.createHorizontalGlue());
-        int rightMargin = 25;
-        EmptyBorder emptyBorder = new EmptyBorder(7, 25, 7, rightMargin);
-        btnExec.setBorder(emptyBorder);
+        this.add(btnSave);
+        this.add(btnLoad);
         this.add(btnExec);
     }
 
