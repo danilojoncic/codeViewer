@@ -1,20 +1,12 @@
 package org.example.gui;
 
 import org.example.control.LineNumberController;
-import org.example.gui.MyTextPane;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Dimension;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.AbstractDocument;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
-import javax.swing.text.DocumentFilter;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
@@ -23,13 +15,13 @@ import javax.swing.text.StyleConstants;
  * veliko hvala Philipp Wilhelm
  * Provides a JScrollPane with line-numbers
  */
-public class EditorScrollPane extends JScrollPane {
+public class MyEditorScrollPane extends JScrollPane {
     private JTextPane inputArea;
     private String indentation = "  ";
     private JTextPane lineNumbers;
     private LineNumberController lineNumberController;
 
-    public EditorScrollPane(MyTextPane myTextPane) {
+    public MyEditorScrollPane(MyTextPane myTextPane) {
         inputArea = myTextPane;
         this.setSize(myTextPane.getSize());
         Document doc = inputArea.getDocument();

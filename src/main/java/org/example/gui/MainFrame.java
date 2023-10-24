@@ -1,7 +1,6 @@
 package org.example.gui;
 
 import org.example.control.ContentController;
-import org.example.control.LineNumberController;
 import org.example.control.LoadController;
 import org.example.control.SaveController;
 
@@ -11,7 +10,7 @@ import java.awt.*;
 public class MainFrame extends JFrame {
     private static MainFrame instance;
     private ContentController contentController;
-    private EditorScrollPane editorScrollPane;
+    private MyEditorScrollPane myEditorScrollPane;
     private LoadController loadController;
     private SaveController saveController;
     private MyPanel myPanel;
@@ -30,13 +29,14 @@ public class MainFrame extends JFrame {
         myPanel = new MyPanel();
         myToolbar = new MyToolbar();
         myPalette = new MyPalette();
-        editorScrollPane = new EditorScrollPane(myPanel.myTextPane);
-        myPanel.add(editorScrollPane);
-        myPanel.add(editorScrollPane);
+        myEditorScrollPane = new MyEditorScrollPane(myPanel.myTextPane);
+        myPanel.add(myEditorScrollPane);
+        myPanel.add(myEditorScrollPane);
         this.add(myToolbar,BorderLayout.NORTH);
         this.add(myPanel,BorderLayout.CENTER);
         this.add(myPalette,BorderLayout.SOUTH);
         contentController = new ContentController(this);
+        loadController = new LoadController(this);
     }
 
 

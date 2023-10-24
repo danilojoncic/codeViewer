@@ -1,6 +1,7 @@
 package org.example.gui;
 
 import org.example.control.InputListener;
+import org.example.control.LoadController;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -69,6 +70,22 @@ public class MyToolbar extends JToolBar implements ActionListener {
 
     public String getUseless() {
         return useless;
+    }
+
+    public JButton getBtnSave() {
+        return btnSave;
+    }
+
+    public void setBtnSave(JButton btnSave) {
+        this.btnSave = btnSave;
+    }
+
+    public JButton getBtnLoad() {
+        return btnLoad;
+    }
+
+    public void setBtnLoad(JButton btnLoad) {
+        this.btnLoad = btnLoad;
     }
 
     public void setUseless(String useless) {

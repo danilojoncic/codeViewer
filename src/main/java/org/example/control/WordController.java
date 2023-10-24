@@ -14,13 +14,13 @@ import java.awt.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class WordListener implements DocumentListener {
+public class WordController implements DocumentListener {
     private MyTextPane myTextPane;
     private StyledDocument styledDocument;
     private Style keywordStyle;
     private Style numberStyle;
     private Style symbolStyle;
-    public WordListener(MyTextPane myTextPane) {
+    public WordController(MyTextPane myTextPane) {
         this.myTextPane = myTextPane;
         this.styledDocument = myTextPane.getStyledDocument();
         this.keywordStyle = styledDocument.addStyle("KeywordStyle",null);

@@ -1,7 +1,6 @@
 package org.example.control;
 
-import org.example.gui.EditorScrollPane;
-import org.example.gui.MainFrame;
+import org.example.gui.MyEditorScrollPane;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -12,14 +11,14 @@ import javax.swing.text.StyleConstants;
 
 public class LineNumberController {
 
-    EditorScrollPane editorScrollPane;
-    public LineNumberController(EditorScrollPane editorScrollPane) {
-        this.editorScrollPane = editorScrollPane;
+    MyEditorScrollPane myEditorScrollPane;
+    public LineNumberController(MyEditorScrollPane myEditorScrollPane) {
+        this.myEditorScrollPane = myEditorScrollPane;
         attachListeners();
     }
 
     private void attachListeners() {
-        editorScrollPane.getInputArea().getDocument().addDocumentListener(new DocumentListener() {
+        myEditorScrollPane.getInputArea().getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
                 lineNumbers();
@@ -38,13 +37,13 @@ public class LineNumberController {
     }
     private void lineNumbers(){
         try {
-            String str = editorScrollPane.getInputArea().getText();
+            String str = myEditorScrollPane.getInputArea().getText();
             SimpleAttributeSet lineNumbersAttributes = new SimpleAttributeSet();
-            StyleConstants.setFontFamily(lineNumbersAttributes,editorScrollPane.getInputArea().getFont().getFamily());
-            StyleConstants.setFontSize(lineNumbersAttributes, editorScrollPane.getInputArea().getFont().getSize());
-            StyleConstants.setAlignment(lineNumbersAttributes, StyleConstants.getAlignment(editorScrollPane.getInputArea().getParagraphAttributes()));
-            editorScrollPane.getLineNumbers().setParagraphAttributes(lineNumbersAttributes, true);
-            Document doc = editorScrollPane.getLineNumbers().getDocument();
+            StyleConstants.setFontFamily(lineNumbersAttributes, myEditorScrollPane.getInputArea().getFont().getFamily());
+            StyleConstants.setFontSize(lineNumbersAttributes, myEditorScrollPane.getInputArea().getFont().getSize());
+            StyleConstants.setAlignment(lineNumbersAttributes, StyleConstants.getAlignment(myEditorScrollPane.getInputArea().getParagraphAttributes()));
+            myEditorScrollPane.getLineNumbers().setParagraphAttributes(lineNumbersAttributes, true);
+            Document doc = myEditorScrollPane.getLineNumbers().getDocument();
             doc.remove(0, doc.getLength());
             int length = str.length() - str.replaceAll("\n", "").length() + 1;
             for (int i = 1; i <= length; i++) {
