@@ -75,4 +75,12 @@ public class MainFrame extends JFrame {
     public void setMyPalette(MyPalette myPalette) {
         this.myPalette = myPalette;
     }
+
+    public MyEditorScrollPane getMyEditorScrollPane() {
+        return myEditorScrollPane;
+    }
+
+    public void setMyEditorScrollPane(MyEditorScrollPane myEditorScrollPane) {
+        this.myEditorScrollPane = myEditorScrollPane;
+    }
 }
